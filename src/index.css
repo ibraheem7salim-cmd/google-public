@@ -1,0 +1,128 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: 'Syne', sans-serif;
+  --font-sans: 'Plus Jakarta Sans', sans-serif;
+  --font-hand: 'Caveat', cursive;
+  --font-mono: 'Space Mono', monospace;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: var(--font-sans);
+  background-color: #f7f6f0;
+  color: #161616;
+}
+
+/* Typography Helpers */
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-hand {
+  font-family: var(--font-hand);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Tactile Notebook Grid Background */
+.bg-notebook-grid {
+  background-color: #f6f5ee;
+  background-image: 
+    linear-gradient(to right, rgba(20, 20, 20, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(20, 20, 20, 0.04) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+.bg-dot-matrix {
+  background-color: #f7f6f0;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.08) 1px, transparent 1px);
+  background-size: 16px 16px;
+}
+
+.bg-dark-grid {
+  background-color: #121212;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* Washi Tape / Masking Tape Aesthetic */
+.masking-tape {
+  position: absolute;
+  height: 22px;
+  background: rgba(240, 235, 215, 0.85);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+  border-left: 2px dashed rgba(160, 150, 130, 0.4);
+  border-right: 2px dashed rgba(160, 150, 130, 0.4);
+  z-index: 20;
+  pointer-events: none;
+}
+
+.masking-tape-yellow {
+  background: rgba(254, 240, 138, 0.82);
+  border-left: 2px dashed rgba(202, 138, 4, 0.3);
+  border-right: 2px dashed rgba(202, 138, 4, 0.3);
+}
+
+.masking-tape-blue {
+  background: rgba(191, 219, 254, 0.82);
+  border-left: 2px dashed rgba(59, 130, 246, 0.3);
+  border-right: 2px dashed rgba(59, 130, 246, 0.3);
+}
+
+/* Film Sprocket Strip Pattern */
+.film-sprockets {
+  background-image: radial-gradient(circle, #161616 35%, transparent 36%);
+  background-size: 18px 18px;
+  background-repeat: repeat-x;
+}
+
+/* Hide scrollbars where necessary */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Recording dot pulse */
+@keyframes rec-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.2; }
+}
+.animate-rec {
+  animation: rec-blink 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Shutter slide transition */
+@keyframes shutter-wipe {
+  0% { transform: translateY(-100%); }
+  50% { transform: translateY(0%); }
+  100% { transform: translateY(100%); }
+}
+
+/* Cursor hiding on desktop when active */
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor-active {
+    cursor: none !important;
+  }
+  .custom-cursor-active a,
+  .custom-cursor-active button,
+  .custom-cursor-active input,
+  .custom-cursor-active select,
+  .custom-cursor-active textarea,
+  .custom-cursor-active [role="button"] {
+    cursor: none !important;
+  }
+}
+
+
